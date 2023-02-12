@@ -26,8 +26,7 @@ workflows:
       - build_and_test
       - eb/deploy:
           context: aws-credentials
-          application-name: $EB_NAME
-          environment-name: $EB_ENVIRONMENT
-          platform-version: Node.js 16 running on 64bit Amazon Linux 2
+          application-name: envy
+          environment-name: envy-dev
           requires:
             - build_and_test
