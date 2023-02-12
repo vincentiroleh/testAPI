@@ -1,29 +1,39 @@
 version: 2.1
 
+orbs:
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+
 jobs:
-  build:
+  deploy:
+    working_directory: ~/app
     docker:
       - image: node:14
-
     steps:
       - checkout
 
       - run:
           name: Install dependencies
+          working_directory: /
           command: |
             npm install
 
       - run:
           name: Run tests
+          working_directory: /
           command: |
             npm test
 
       - run:
           name: Deploy to Elastic Beanstalk
           command: |
-            aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-            aws configure set default.region us-east-1
-            eb init myapp --platform node.js
-            eb create myapp-env
-            eb deploy myapp-env
+            eb deploy $EB_ENVIRONMENT
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - main
