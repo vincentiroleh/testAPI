@@ -6,7 +6,7 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-    res.json({ status: "success", message: "Welcome To Testing API" });
+    res.json({ status: "success", message: "Welcome To Testing APIS" });
 });
 
 app.get("/name", (req, res) => {
