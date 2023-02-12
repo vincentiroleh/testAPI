@@ -13,13 +13,11 @@ jobs:
 
       - run:
           name: Install dependencies
-          working_directory: /
           command: |
             npm install
 
       - run:
           name: Run tests
-          working_directory: /
           command: |
             npm test
 
