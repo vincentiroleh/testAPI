@@ -26,7 +26,7 @@ workflows:
       - build_and_test
       - eb/deploy:
           context: aws-credentials
-          application-name: envy
-          environment-name: envy-dev
+          application-name: $EB_NAME
+          environment-name: $EB_ENVIRONMENT
           requires:
             - build_and_test

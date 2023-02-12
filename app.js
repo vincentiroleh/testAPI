@@ -9,6 +9,9 @@ app.get("/", (req, res) => {
     res.json({ status: "success", message: "Welcome To Testing API" });
 });
 
+app.get("/name", (req, res) => {
+    res.json({ status: "success", name: "Vincent Iroleh" });
+});
 
 app.post("/add", (req, res) => {
     const { num1, num2 } = req.body;
