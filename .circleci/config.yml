@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  eb: circleci/aws-elastic-beanstalk@2.0.1
+  aws-cli: circleci/aws-cli@3.1.4
 
 jobs:
   deploy:
@@ -29,7 +29,6 @@ jobs:
             eb deploy $EB_ENVIRONMENT
 
 workflows:
-  version: 2
   build:
     jobs:
       - deploy:
