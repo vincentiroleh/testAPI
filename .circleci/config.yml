@@ -17,8 +17,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            npm test
-  
+            npm test    
 
 workflows:
   my_workflow:
@@ -28,5 +27,9 @@ workflows:
           context: aws-credentials
           application-name: $EB_NAME
           environment-name: $EB_ENVIRONMENT
+          filters:
+            branches:
+              only:
+                - main
           requires:
             - build_and_test

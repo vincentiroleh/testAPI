@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/name", (req, res) => {
-    res.json({ status: "success", name: "Vincent Iroleh" });
+    res.json({ status: "success", name: "Nwachukwu" });
 });
 
 app.post("/add", (req, res) => {
